@@ -1,0 +1,662 @@
+Component: ARM Compiler 5.06 update 7 (build 960) Tool: armlink [4d3601]
+
+==============================================================================
+
+Section Cross References
+
+    main.o(.text) refers to pin.o(.text) for rt_pin_mode
+    main.o(.text) refers to kservice.o(.text) for rt_kprintf
+    main.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    main.o(FSymTab) refers to main.o(.rodata.name) for __fsym___cmd_led_name
+    main.o(FSymTab) refers to main.o(.rodata.name) for __fsym___cmd_led_desc
+    main.o(FSymTab) refers to main.o(.text) for led
+    board.o(.text) refers to stm32f1xx_hal_cortex.o(.text) for HAL_NVIC_SetPriorityGrouping
+    board.o(.text) refers to stm32f1xx_hal_rcc.o(.text) for HAL_RCC_OscConfig
+    board.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    board.o(.text) refers to irq.o(.text) for rt_interrupt_enter
+    board.o(.text) refers to stm32f1xx_hal.o(.text) for HAL_IncTick
+    board.o(.text) refers to clock.o(.text) for rt_tick_increase
+    board.o(.text) refers to mem.o(.text) for rt_system_heap_init
+    board.o(.text) refers to components.o(.text) for rt_components_board_init
+    board.o(.text) refers to board.o(.constdata) for .constdata
+    board.o(.text) refers to board.o(.conststring) for .conststring
+    drv_gpio.o(.text) refers to stm32f1xx_hal_gpio.o(.text) for HAL_GPIO_WritePin
+    drv_gpio.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    drv_gpio.o(.text) refers to stm32f1xx_hal_cortex.o(.text) for HAL_NVIC_SetPriority
+    drv_gpio.o(.text) refers to pin.o(.text) for rt_device_pin_register
+    drv_gpio.o(.text) refers to irq.o(.text) for rt_interrupt_enter
+    drv_gpio.o(.text) refers to drv_gpio.o(.constdata) for .constdata
+    drv_gpio.o(.text) refers to drv_gpio.o(.data) for .data
+    drv_gpio.o(.constdata) refers to drv_gpio.o(.text) for GPIOE_CLK_ENABLE
+    drv_gpio.o(.rti_fn.1) refers to drv_gpio.o(.text) for rt_hw_pin_init
+    drv_usart.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    drv_usart.o(.text) refers to stm32f1xx_hal_uart.o(.text) for HAL_UART_Init
+    drv_usart.o(.text) refers to serial.o(.text) for rt_hw_serial_isr
+    drv_usart.o(.text) refers to irq.o(.text) for rt_interrupt_enter
+    drv_usart.o(.text) refers to stm32f1xx_hal_gpio.o(.text) for HAL_GPIO_Init
+    drv_usart.o(.text) refers to stm32f1xx_hal_cortex.o(.text) for HAL_NVIC_SetPriority
+    drv_usart.o(.text) refers to drv_usart.o(.constdata) for .constdata
+    drv_usart.o(.text) refers to drv_usart.o(.bss) for .bss
+    drv_usart.o(.text) refers to drv_usart.o(.data) for .data
+    drv_usart.o(.constdata) refers to drv_usart.o(.text) for stm32_configure
+    drv_usart.o(.rti_fn.1) refers to drv_usart.o(.text) for rt_hw_usart_init
+    system_stm32f1xx.o(.text) refers to system_stm32f1xx.o(.data) for .data
+    system_stm32f1xx.o(.text) refers to system_stm32f1xx.o(.constdata) for .constdata
+    stm32f1xx_hal_gpio.o(.text) refers to drv_gpio.o(.text) for HAL_GPIO_EXTI_Callback
+    stm32f1xx_hal_flash.o(.text) refers to stm32f1xx_hal.o(.text) for HAL_GetTick
+    stm32f1xx_hal_flash.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    stm32f1xx_hal_flash.o(.text) refers to stm32f1xx_hal_flash_ex.o(.text) for FLASH_PageErase
+    stm32f1xx_hal_flash.o(.text) refers to stm32f1xx_hal_cortex.o(.text) for HAL_NVIC_SystemReset
+    stm32f1xx_hal_flash.o(.text) refers to stm32f1xx_hal_flash.o(.bss) for .bss
+    stm32f1xx_hal_flash_ex.o(.text) refers to stm32f1xx_hal_flash.o(.text) for FLASH_WaitForLastOperation
+    stm32f1xx_hal_flash_ex.o(.text) refers to stm32f1xx_hal_flash.o(.bss) for pFlash
+    stm32f1xx_hal_dma.o(.text) refers to stm32f1xx_hal.o(.text) for HAL_GetTick
+    stm32f1xx_hal_rcc.o(.text) refers to stm32f1xx_hal.o(.text) for HAL_GetTick
+    stm32f1xx_hal_rcc.o(.text) refers to system_stm32f1xx.o(.data) for SystemCoreClock
+    stm32f1xx_hal_rcc.o(.text) refers to stm32f1xx_hal_gpio.o(.text) for HAL_GPIO_Init
+    stm32f1xx_hal_rcc.o(.text) refers to system_stm32f1xx.o(.constdata) for AHBPrescTable
+    stm32f1xx_hal_rcc.o(.text) refers to system_stm32f1xx.o(.constdata) for APBPrescTable
+    stm32f1xx_hal_rcc_ex.o(.text) refers to stm32f1xx_hal.o(.text) for HAL_GetTick
+    stm32f1xx_hal_rcc_ex.o(.text) refers to stm32f1xx_hal_rcc.o(.text) for HAL_RCC_GetPCLK2Freq
+    stm32f1xx_hal_tim.o(.text) refers to stm32f1xx_hal_dma.o(.text) for HAL_DMA_Start_IT
+    stm32f1xx_hal_tim.o(.text) refers to stm32f1xx_hal_tim_ex.o(.text) for HAL_TIMEx_BreakCallback
+    stm32f1xx_hal_tim_ex.o(.text) refers to stm32f1xx_hal_tim.o(.text) for TIM_Base_SetConfig
+    stm32f1xx_hal_tim_ex.o(.text) refers to stm32f1xx_hal_dma.o(.text) for HAL_DMA_Start_IT
+    stm32f1xx_hal_uart.o(.text) refers to stm32f1xx_hal_rcc.o(.text) for HAL_RCC_GetPCLK2Freq
+    stm32f1xx_hal_uart.o(.text) refers to drv_usart.o(.text) for HAL_UART_MspInit
+    stm32f1xx_hal_uart.o(.text) refers to stm32f1xx_hal.o(.text) for HAL_GetTick
+    stm32f1xx_hal_uart.o(.text) refers to stm32f1xx_hal_dma.o(.text) for HAL_DMA_Start_IT
+    stm32f1xx_hal_usart.o(.text) refers to stm32f1xx_hal_rcc.o(.text) for HAL_RCC_GetPCLK2Freq
+    stm32f1xx_hal_usart.o(.text) refers to stm32f1xx_hal.o(.text) for HAL_GetTick
+    stm32f1xx_hal_usart.o(.text) refers to stm32f1xx_hal_dma.o(.text) for HAL_DMA_Start_IT
+    stm32f1xx_hal.o(.text) refers to stm32f1xx_hal_cortex.o(.text) for HAL_SYSTICK_Config
+    stm32f1xx_hal.o(.text) refers to board.o(.text) for HAL_MspInit
+    stm32f1xx_hal.o(.text) refers to system_stm32f1xx.o(.data) for SystemCoreClock
+    stm32f1xx_hal.o(.text) refers to stm32f1xx_hal.o(.data) for .data
+    stm32f1xx_ll_utils.o(.text) refers to system_stm32f1xx.o(.data) for SystemCoreClock
+    stm32f1xx_ll_utils.o(.text) refers to system_stm32f1xx.o(.constdata) for AHBPrescTable
+    startup_stm32f103xe.o(RESET) refers to startup_stm32f103xe.o(STACK) for __initial_sp
+    startup_stm32f103xe.o(RESET) refers to startup_stm32f103xe.o(.text) for Reset_Handler
+    startup_stm32f103xe.o(RESET) refers to stm32f1xx_it.o(.text) for NMI_Handler
+    startup_stm32f103xe.o(RESET) refers to context_rvds.o(.text) for HardFault_Handler
+    startup_stm32f103xe.o(RESET) refers to board.o(.text) for SysTick_Handler
+    startup_stm32f103xe.o(RESET) refers to drv_gpio.o(.text) for EXTI0_IRQHandler
+    startup_stm32f103xe.o(RESET) refers to drv_usart.o(.text) for USART1_IRQHandler
+    startup_stm32f103xe.o(.text) refers to system_stm32f1xx.o(.text) for SystemInit
+    startup_stm32f103xe.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    clock.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    clock.o(.text) refers to thread.o(.text) for rt_thread_self
+    clock.o(.text) refers to timer.o(.text) for rt_timer_check
+    clock.o(.text) refers to clock.o(.data) for .data
+    components.o(.text) refers to main.o(.text) for $Super$$main
+    components.o(.text) refers to thread.o(.text) for rt_thread_create
+    components.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    components.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    components.o(.text) refers to board.o(.text) for rt_hw_board_init
+    components.o(.text) refers to timer.o(.text) for rt_system_timer_init
+    components.o(.text) refers to scheduler.o(.text) for rt_system_scheduler_init
+    components.o(.text) refers to signal.o(.text) for rt_system_signal_init
+    components.o(.text) refers to idle.o(.text) for rt_thread_idle_init
+    components.o(.text) refers to components.o(.rti_fn.0.end) for .rti_fn.0.end
+    components.o(.text) refers to components.o(.rti_fn.1.end) for .rti_fn.1.end
+    components.o(.text) refers to components.o(.rti_fn.6.end) for .rti_fn.6.end
+    components.o(.text) refers to components.o(.constdata) for .constdata
+    components.o(.rti_fn.0) refers to components.o(.text) for rti_start
+    components.o(.rti_fn.0.end) refers to components.o(.text) for rti_board_start
+    components.o(.rti_fn.1.end) refers to components.o(.text) for rti_board_end
+    components.o(.rti_fn.6.end) refers to components.o(.text) for rti_end
+    device.o(.text) refers to thread.o(.text) for rt_thread_self
+    device.o(.text) refers to scheduler.o(.text) for rt_enter_critical
+    device.o(.text) refers to object.o(.text) for rt_object_get_information
+    device.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    device.o(.text) refers to mem.o(.text) for rt_malloc
+    device.o(.text) refers to device.o(.constdata) for .constdata
+    idle.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    idle.o(.text) refers to irq.o(.text) for rt_interrupt_get_nest
+    idle.o(.text) refers to kservice.o(.text) for rt_kprintf
+    idle.o(.text) refers to scheduler.o(.text) for rt_enter_critical
+    idle.o(.text) refers to signal.o(.text) for rt_thread_free_sig
+    idle.o(.text) refers to object.o(.text) for rt_object_is_systemobject
+    idle.o(.text) refers to mem.o(.text) for rt_free
+    idle.o(.text) refers to thread.o(.text) for rt_thread_init
+    idle.o(.text) refers to idle.o(.bss) for .bss
+    idle.o(.text) refers to idle.o(.constdata) for .constdata
+    idle.o(.text) refers to scheduler.o(.data) for rt_thread_defunct
+    ipc.o(.text) refers to thread.o(.text) for rt_thread_suspend
+    ipc.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    ipc.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    ipc.o(.text) refers to object.o(.text) for rt_object_init
+    ipc.o(.text) refers to irq.o(.text) for rt_interrupt_get_nest
+    ipc.o(.text) refers to timer.o(.text) for rt_timer_control
+    ipc.o(.text) refers to scheduler.o(.text) for rt_schedule
+    ipc.o(.text) refers to ipc.o(.constdata) for .constdata
+    ipc.o(.text) refers to ipc.o(.conststring) for .conststring
+    ipc.o(.text) refers to object.o(.data) for rt_object_trytake_hook
+    ipc.o(.text) refers to mem.o(.text) for rt_malloc
+    ipc.o(.text) refers to clock.o(.text) for rt_tick_get
+    irq.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    irq.o(.text) refers to irq.o(.data) for .data
+    kservice.o(.text) refers to irq.o(.text) for rt_interrupt_get_nest
+    kservice.o(.text) refers to thread.o(.text) for rt_thread_self
+    kservice.o(.text) refers to mem.o(.text) for rt_malloc
+    kservice.o(.text) refers to kservice.o(.data) for .data
+    kservice.o(.text) refers to kservice.o(.constdata) for .constdata
+    kservice.o(.text) refers to device.o(.text) for rt_device_write
+    kservice.o(.text) refers to kservice.o(.bss) for .bss
+    mem.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    mem.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    mem.o(.text) refers to irq.o(.text) for rt_interrupt_get_nest
+    mem.o(.text) refers to ipc.o(.text) for rt_sem_init
+    mem.o(.text) refers to mem.o(.data) for .data
+    mem.o(.text) refers to mem.o(.constdata) for .constdata
+    mem.o(.text) refers to mem.o(.bss) for .bss
+    mem.o(.text) refers to mem.o(.conststring) for .conststring
+    mem.o(FSymTab) refers to mem.o(.rodata.name) for __fsym_list_mem_name
+    mem.o(FSymTab) refers to mem.o(.rodata.name) for __fsym_list_mem_desc
+    mem.o(FSymTab) refers to mem.o(.text) for list_mem
+    memheap.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    memheap.o(.text) refers to object.o(.text) for rt_object_init
+    memheap.o(.text) refers to ipc.o(.text) for rt_sem_init
+    memheap.o(.text) refers to memheap.o(.constdata) for .constdata
+    mempool.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    mempool.o(.text) refers to object.o(.text) for rt_object_init
+    mempool.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    mempool.o(.text) refers to thread.o(.text) for rt_thread_resume
+    mempool.o(.text) refers to irq.o(.text) for rt_interrupt_get_nest
+    mempool.o(.text) refers to mem.o(.text) for rt_malloc
+    mempool.o(.text) refers to clock.o(.text) for rt_tick_get
+    mempool.o(.text) refers to timer.o(.text) for rt_timer_control
+    mempool.o(.text) refers to scheduler.o(.text) for rt_schedule
+    mempool.o(.text) refers to mempool.o(.data) for .data
+    mempool.o(.text) refers to mempool.o(.constdata) for .constdata
+    object.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    object.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    object.o(.text) refers to irq.o(.text) for rt_interrupt_get_nest
+    object.o(.text) refers to mem.o(.text) for rt_malloc
+    object.o(.text) refers to scheduler.o(.text) for rt_enter_critical
+    object.o(.text) refers to object.o(.data) for .data
+    object.o(.text) refers to object.o(.constdata) for .constdata
+    scheduler.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    scheduler.o(.text) refers to cmd.o(.text) for list_thread
+    scheduler.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    scheduler.o(.text) refers to signal.o(.text) for rt_thread_handle_sig
+    scheduler.o(.text) refers to scheduler.o(.data) for .data
+    scheduler.o(.text) refers to scheduler.o(.constdata) for .constdata
+    scheduler.o(.text) refers to scheduler.o(.bss) for .bss
+    scheduler.o(.text) refers to irq.o(.data) for rt_interrupt_nest
+    signal.o(.text) refers to thread.o(.text) for rt_thread_self
+    signal.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    signal.o(.text) refers to mempool.o(.text) for rt_mp_free
+    signal.o(.text) refers to scheduler.o(.text) for rt_schedule
+    signal.o(.text) refers to cpuport.o(.text) for rt_hw_stack_init
+    signal.o(.text) refers to mem.o(.text) for rt_malloc
+    signal.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    signal.o(.text) refers to irq.o(.text) for rt_interrupt_get_nest
+    signal.o(.text) refers to timer.o(.text) for rt_timer_control
+    signal.o(.text) refers to signal.o(.constdata) for .constdata
+    signal.o(.text) refers to signal.o(.data) for .data
+    timer.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    timer.o(.text) refers to object.o(.text) for rt_object_init
+    timer.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    timer.o(.text) refers to clock.o(.text) for rt_tick_get
+    timer.o(.text) refers to timer.o(.data) for .data
+    timer.o(.text) refers to timer.o(.constdata) for .constdata
+    timer.o(.text) refers to object.o(.data) for rt_object_take_hook
+    thread.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    thread.o(.text) refers to scheduler.o(.text) for rt_schedule_remove_thread
+    thread.o(.text) refers to timer.o(.text) for rt_timer_detach
+    thread.o(.text) refers to object.o(.text) for rt_object_is_systemobject
+    thread.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    thread.o(.text) refers to cpuport.o(.text) for rt_hw_stack_init
+    thread.o(.text) refers to mem.o(.text) for rt_malloc
+    thread.o(.text) refers to thread.o(.data) for .data
+    thread.o(.text) refers to scheduler.o(.data) for rt_current_thread
+    thread.o(.text) refers to thread.o(.constdata) for .constdata
+    thread.o(.text) refers to thread.o(.conststring) for .conststring
+    thread.o(.text) refers to clock.o(.text) for rt_tick_from_millisecond
+    thread.o(.text) refers to scheduler.o(.bss) for rt_thread_priority_table
+    cpuport.o(.text) refers to kservice.o(.text) for rt_kprintf
+    cpuport.o(.text) refers to thread.o(.text) for rt_thread_self
+    cpuport.o(.text) refers to cmd.o(.text) for list_thread
+    cpuport.o(.text) refers to cpuport.o(.data) for .data
+    cpuport.o(.text) refers to cpuport.o(.constdata) for .constdata
+    context_rvds.o(.text) refers to cpuport.o(.text) for rt_hw_hard_fault_exception
+    context_rvds.o(.text) refers to cpuport.o(.data) for rt_thread_switch_interrupt_flag
+    context_rvds.o(.text) refers to cpuport.o(.data) for rt_interrupt_from_thread
+    context_rvds.o(.text) refers to cpuport.o(.data) for rt_interrupt_to_thread
+    pin.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    pin.o(.text) refers to device.o(.text) for rt_device_register
+    pin.o(.text) refers to pin.o(.constdata) for .constdata
+    pin.o(.text) refers to pin.o(.bss) for .bss
+    pin.o(FSymTab) refers to pin.o(.rodata.name) for __fsym_pinMode_name
+    pin.o(FSymTab) refers to pin.o(.rodata.name) for __fsym_pinMode_desc
+    pin.o(FSymTab) refers to pin.o(.text) for rt_pin_mode
+    pin.o(FSymTab) refers to pin.o(.rodata.name) for __fsym_pinWrite_name
+    pin.o(FSymTab) refers to pin.o(.rodata.name) for __fsym_pinWrite_desc
+    pin.o(FSymTab) refers to pin.o(.text) for rt_pin_write
+    pin.o(FSymTab) refers to pin.o(.rodata.name) for __fsym_pinRead_name
+    pin.o(FSymTab) refers to pin.o(.rodata.name) for __fsym_pinRead_desc
+    pin.o(FSymTab) refers to pin.o(.text) for rt_pin_read
+    serial.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    serial.o(.text) refers to mem.o(.text) for rt_malloc
+    serial.o(.text) refers to device.o(.text) for rt_device_register
+    serial.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    serial.o(.text) refers to serial.o(.constdata) for .constdata
+    shell.o(.text) refers to msh.o(.text) for msh_is_used
+    shell.o(.text) refers to strcpy.o(.text) for strcpy
+    shell.o(.text) refers to strcat.o(.text) for strcat
+    shell.o(.text) refers to kservice.o(.text) for rt_assert_handler
+    shell.o(.text) refers to ipc.o(.text) for rt_sem_take
+    shell.o(.text) refers to device.o(.text) for rt_device_read
+    shell.o(.text) refers to memseta.o(.text) for __aeabi_memclr
+    shell.o(.text) refers to memcmp.o(.text) for memcmp
+    shell.o(.text) refers to memcpya.o(.text) for __aeabi_memcpy
+    shell.o(.text) refers to strlen.o(.text) for strlen
+    shell.o(.text) refers to shell.o(.bss) for .bss
+    shell.o(.text) refers to shell.o(.data) for .data
+    shell.o(.text) refers to shell.o(.constdata) for .constdata
+    shell.o(.text) refers to mem.o(.text) for rt_calloc
+    shell.o(.text) refers to thread.o(.text) for rt_thread_create
+    shell.o(.text) refers to symbol.o(.data) for _syscall_table_begin
+    shell.o(.text) refers to symbol.o(.data) for _syscall_table_end
+    shell.o(.text) refers to symbol.o(.data) for _sysvar_table_begin
+    shell.o(.text) refers to symbol.o(.data) for _sysvar_table_end
+    shell.o(.rti_fn.6) refers to shell.o(.text) for finsh_system_init
+    cmd.o(.text) refers to kservice.o(.text) for rt_kprintf
+    cmd.o(.text) refers to scheduler.o(.text) for rt_enter_critical
+    cmd.o(.text) refers to object.o(.text) for rt_object_get_information
+    cmd.o(.text) refers to cmd.o(.conststring) for .conststring
+    cmd.o(.text) refers to clock.o(.text) for rt_tick_get
+    cmd.o(.text) refers to memcpya.o(.text) for __aeabi_memcpy4
+    cmd.o(.text) refers to strncmp.o(.text) for strncmp
+    cmd.o(.text) refers to cmd.o(.constdata) for .constdata
+    cmd.o(.text) refers to symbol.o(.data) for _syscall_table_begin
+    cmd.o(.text) refers to symbol.o(.data) for _syscall_table_end
+    cmd.o(.constdata) refers to cmd.o(.conststring) for .conststring
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_hello_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_hello_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for hello
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_version_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_version_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for version
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_version_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_version_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for version
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_thread_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_thread_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_thread
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_thread_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_thread_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_thread
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_sem_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_sem_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_sem
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_sem_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_sem_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_sem
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_event_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_event_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_event
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_event_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_event_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_event
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_mutex_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_mutex_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_mutex
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_mutex_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_mutex_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_mutex
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_mailbox_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_mailbox_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_mailbox
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_mailbox_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_mailbox_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_mailbox
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_msgqueue_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_msgqueue_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_msgqueue
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_msgqueue_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_msgqueue_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_msgqueue
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_memheap_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_memheap_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_memheap
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_memheap_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_memheap_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_memheap
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_mempool_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_mempool_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_mempool
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_mempool_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_mempool_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_mempool
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_timer_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_timer_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_timer
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_timer_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_timer_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_timer
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_device_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_device_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_device
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_device_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym___cmd_list_device_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list_device
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_name
+    cmd.o(FSymTab) refers to cmd.o(.rodata.name) for __fsym_list_desc
+    cmd.o(FSymTab) refers to cmd.o(.text) for list
+    msh.o(.text) refers to kservice.o(.text) for rt_kprintf
+    msh.o(.text) refers to strncmp.o(.text) for strncmp
+    msh.o(.text) refers to memseta.o(.text) for __aeabi_memclr4
+    msh.o(.text) refers to strlen.o(.text) for strlen
+    msh.o(.text) refers to symbol.o(.data) for _syscall_table_begin
+    msh.o(.text) refers to symbol.o(.data) for _syscall_table_end
+    msh.o(.text) refers to msh.o(.constdata) for .constdata
+    msh.o(FSymTab) refers to msh.o(.rodata.name) for __fsym___cmd_help_name
+    msh.o(FSymTab) refers to msh.o(.rodata.name) for __fsym___cmd_help_desc
+    msh.o(FSymTab) refers to msh.o(.text) for msh_help
+    msh_cmd.o(.text) refers to cmd.o(.text) for list_thread
+    msh_cmd.o(.text) refers to mem.o(.text) for list_mem
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.rodata.name) for __fsym___cmd_ps_name
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.rodata.name) for __fsym___cmd_ps_desc
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.text) for cmd_ps
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.rodata.name) for __fsym___cmd_time_name
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.rodata.name) for __fsym___cmd_time_desc
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.text) for cmd_time
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.rodata.name) for __fsym___cmd_free_name
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.rodata.name) for __fsym___cmd_free_desc
+    msh_cmd.o(FSymTab) refers to msh_cmd.o(.text) for cmd_free
+    dynmem_sample.o(.text) refers to mem.o(.text) for rt_malloc
+    dynmem_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    dynmem_sample.o(.text) refers to thread.o(.text) for rt_thread_create
+    dynmem_sample.o(FSymTab) refers to dynmem_sample.o(.rodata.name) for __fsym___cmd_dynmem_sample_name
+    dynmem_sample.o(FSymTab) refers to dynmem_sample.o(.rodata.name) for __fsym___cmd_dynmem_sample_desc
+    dynmem_sample.o(FSymTab) refers to dynmem_sample.o(.text) for dynmem_sample
+    event_sample.o(.text) refers to ipc.o(.text) for rt_event_recv
+    event_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    event_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    event_sample.o(.text) refers to event_sample.o(.bss) for .bss
+    event_sample.o(FSymTab) refers to event_sample.o(.rodata.name) for __fsym___cmd_event_sample_name
+    event_sample.o(FSymTab) refers to event_sample.o(.rodata.name) for __fsym___cmd_event_sample_desc
+    event_sample.o(FSymTab) refers to event_sample.o(.text) for event_sample
+    idlehook_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    idlehook_sample.o(.text) refers to scheduler.o(.text) for rt_enter_critical
+    idlehook_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    idlehook_sample.o(.text) refers to idle.o(.text) for rt_thread_idle_delhook
+    idlehook_sample.o(.text) refers to idlehook_sample.o(.data) for .data
+    idlehook_sample.o(FSymTab) refers to idlehook_sample.o(.rodata.name) for __fsym___cmd_idle_hook_sample_name
+    idlehook_sample.o(FSymTab) refers to idlehook_sample.o(.rodata.name) for __fsym___cmd_idle_hook_sample_desc
+    idlehook_sample.o(FSymTab) refers to idlehook_sample.o(.text) for idle_hook_sample
+    interrupt_sample.o(.text) refers to context_rvds.o(.text) for rt_hw_interrupt_disable
+    interrupt_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    interrupt_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    interrupt_sample.o(.text) refers to interrupt_sample.o(.data) for .data
+    interrupt_sample.o(FSymTab) refers to interrupt_sample.o(.rodata.name) for __fsym___cmd_interrupt_sample_name
+    interrupt_sample.o(FSymTab) refers to interrupt_sample.o(.rodata.name) for __fsym___cmd_interrupt_sample_desc
+    interrupt_sample.o(FSymTab) refers to interrupt_sample.o(.text) for interrupt_sample
+    mailbox_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    mailbox_sample.o(.text) refers to ipc.o(.text) for rt_mb_detach
+    mailbox_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    mailbox_sample.o(.text) refers to mailbox_sample.o(.data) for .data
+    mailbox_sample.o(.text) refers to mailbox_sample.o(.bss) for .bss
+    mailbox_sample.o(FSymTab) refers to mailbox_sample.o(.rodata.name) for __fsym___cmd_mailbox_sample_name
+    mailbox_sample.o(FSymTab) refers to mailbox_sample.o(.rodata.name) for __fsym___cmd_mailbox_sample_desc
+    mailbox_sample.o(FSymTab) refers to mailbox_sample.o(.text) for mailbox_sample
+    memp_sample.o(.text) refers to mempool.o(.text) for rt_mp_alloc
+    memp_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    memp_sample.o(.text) refers to thread.o(.text) for rt_thread_create
+    memp_sample.o(.text) refers to memp_sample.o(.bss) for .bss
+    memp_sample.o(.text) refers to memp_sample.o(.data) for .data
+    memp_sample.o(FSymTab) refers to memp_sample.o(.rodata.name) for __fsym___cmd_mempool_sample_name
+    memp_sample.o(FSymTab) refers to memp_sample.o(.rodata.name) for __fsym___cmd_mempool_sample_desc
+    memp_sample.o(FSymTab) refers to memp_sample.o(.text) for mempool_sample
+    msgq_sample.o(.text) refers to ipc.o(.text) for rt_mq_recv
+    msgq_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    msgq_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    msgq_sample.o(.text) refers to msgq_sample.o(.bss) for .bss
+    msgq_sample.o(FSymTab) refers to msgq_sample.o(.rodata.name) for __fsym___cmd_msgq_sample_name
+    msgq_sample.o(FSymTab) refers to msgq_sample.o(.rodata.name) for __fsym___cmd_msgq_sample_desc
+    msgq_sample.o(FSymTab) refers to msgq_sample.o(.text) for msgq_sample
+    mutex_sample.o(.text) refers to ipc.o(.text) for rt_mutex_take
+    mutex_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    mutex_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    mutex_sample.o(.text) refers to mutex_sample.o(.data) for .data
+    mutex_sample.o(.text) refers to mutex_sample.o(.bss) for .bss
+    mutex_sample.o(FSymTab) refers to mutex_sample.o(.rodata.name) for __fsym___cmd_mutex_sample_name
+    mutex_sample.o(FSymTab) refers to mutex_sample.o(.rodata.name) for __fsym___cmd_mutex_sample_desc
+    mutex_sample.o(FSymTab) refers to mutex_sample.o(.text) for mutex_sample
+    priority_inversion.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    priority_inversion.o(.text) refers to kservice.o(.text) for rt_kprintf
+    priority_inversion.o(.text) refers to ipc.o(.text) for rt_mutex_take
+    priority_inversion.o(.text) refers to clock.o(.text) for rt_tick_get
+    priority_inversion.o(.text) refers to priority_inversion.o(.data) for .data
+    priority_inversion.o(FSymTab) refers to priority_inversion.o(.rodata.name) for __fsym___cmd_pri_inversion_name
+    priority_inversion.o(FSymTab) refers to priority_inversion.o(.rodata.name) for __fsym___cmd_pri_inversion_desc
+    priority_inversion.o(FSymTab) refers to priority_inversion.o(.text) for pri_inversion
+    producer_consumer.o(.text) refers to ipc.o(.text) for rt_sem_take
+    producer_consumer.o(.text) refers to kservice.o(.text) for rt_kprintf
+    producer_consumer.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    producer_consumer.o(.text) refers to producer_consumer.o(.data) for .data
+    producer_consumer.o(.text) refers to producer_consumer.o(.bss) for .bss
+    producer_consumer.o(FSymTab) refers to producer_consumer.o(.rodata.name) for __fsym___cmd_producer_consumer_name
+    producer_consumer.o(FSymTab) refers to producer_consumer.o(.rodata.name) for __fsym___cmd_producer_consumer_desc
+    producer_consumer.o(FSymTab) refers to producer_consumer.o(.text) for producer_consumer
+    scheduler_hook.o(.text) refers to kservice.o(.text) for rt_kprintf
+    scheduler_hook.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    scheduler_hook.o(.text) refers to scheduler.o(.text) for rt_scheduler_sethook
+    scheduler_hook.o(.text) refers to scheduler_hook.o(.data) for .data
+    scheduler_hook.o(FSymTab) refers to scheduler_hook.o(.rodata.name) for __fsym___cmd_scheduler_hook_name
+    scheduler_hook.o(FSymTab) refers to scheduler_hook.o(.rodata.name) for __fsym___cmd_scheduler_hook_desc
+    scheduler_hook.o(FSymTab) refers to scheduler_hook.o(.text) for scheduler_hook
+    semaphore_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    semaphore_sample.o(.text) refers to ipc.o(.text) for rt_sem_release
+    semaphore_sample.o(.text) refers to thread.o(.text) for rt_thread_init
+    semaphore_sample.o(.text) refers to semaphore_sample.o(.data) for .data
+    semaphore_sample.o(.text) refers to semaphore_sample.o(.bss) for .bss
+    semaphore_sample.o(FSymTab) refers to semaphore_sample.o(.rodata.name) for __fsym___cmd_semaphore_sample_name
+    semaphore_sample.o(FSymTab) refers to semaphore_sample.o(.rodata.name) for __fsym___cmd_semaphore_sample_desc
+    semaphore_sample.o(FSymTab) refers to semaphore_sample.o(.text) for semaphore_sample
+    signal_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    signal_sample.o(.text) refers to signal.o(.text) for rt_signal_install
+    signal_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    signal_sample.o(.text) refers to signal_sample.o(.data) for .data
+    signal_sample.o(FSymTab) refers to signal_sample.o(.rodata.name) for __fsym___cmd_signal_sample_name
+    signal_sample.o(FSymTab) refers to signal_sample.o(.rodata.name) for __fsym___cmd_signal_sample_desc
+    signal_sample.o(FSymTab) refers to signal_sample.o(.text) for signal_sample
+    thread_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    thread_sample.o(.text) refers to thread.o(.text) for rt_thread_mdelay
+    thread_sample.o(.text) refers to thread_sample.o(.data) for .data
+    thread_sample.o(.text) refers to thread_sample.o(.bss) for .bss
+    thread_sample.o(FSymTab) refers to thread_sample.o(.rodata.name) for __fsym___cmd_thread_sample_name
+    thread_sample.o(FSymTab) refers to thread_sample.o(.rodata.name) for __fsym___cmd_thread_sample_desc
+    thread_sample.o(FSymTab) refers to thread_sample.o(.text) for thread_sample
+    timer_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    timer_sample.o(.text) refers to timer.o(.text) for rt_timer_stop
+    timer_sample.o(.text) refers to timer_sample.o(.data) for .data
+    timer_sample.o(FSymTab) refers to timer_sample.o(.rodata.name) for __fsym___cmd_timer_sample_name
+    timer_sample.o(FSymTab) refers to timer_sample.o(.rodata.name) for __fsym___cmd_timer_sample_desc
+    timer_sample.o(FSymTab) refers to timer_sample.o(.text) for timer_sample
+    timeslice_sample.o(.text) refers to kservice.o(.text) for rt_kprintf
+    timeslice_sample.o(.text) refers to thread.o(.text) for rt_thread_create
+    timeslice_sample.o(FSymTab) refers to timeslice_sample.o(.rodata.name) for __fsym___cmd_timeslice_sample_name
+    timeslice_sample.o(FSymTab) refers to timeslice_sample.o(.rodata.name) for __fsym___cmd_timeslice_sample_desc
+    timeslice_sample.o(FSymTab) refers to timeslice_sample.o(.text) for timeslice_sample
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000F) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$00000011) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry12b.o(.ARM.Collect$$$$0000000E) for __rt_lib_shutdown_fini
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup_stm32f103xe.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup_stm32f103xe.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to components.o(.text) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to components.o(.text) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing board.o(.rev16_text), (4 bytes).
+    Removing board.o(.revsh_text), (4 bytes).
+    Removing board.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_it.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_it.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_it.o(.rrx_text), (6 bytes).
+    Removing drv_gpio.o(.rev16_text), (4 bytes).
+    Removing drv_gpio.o(.revsh_text), (4 bytes).
+    Removing drv_gpio.o(.rrx_text), (6 bytes).
+    Removing drv_usart.o(.rev16_text), (4 bytes).
+    Removing drv_usart.o(.revsh_text), (4 bytes).
+    Removing drv_usart.o(.rrx_text), (6 bytes).
+    Removing system_stm32f1xx.o(.rev16_text), (4 bytes).
+    Removing system_stm32f1xx.o(.revsh_text), (4 bytes).
+    Removing system_stm32f1xx.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_adc.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_adc.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_adc.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_adc_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_adc_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_adc_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_gpio.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_gpio.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_gpio.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_gpio_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_gpio_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_gpio_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_gpio_ex.o(.text), (44 bytes).
+    Removing stm32f1xx_hal_flash.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_flash.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_flash.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_flash.o(.text), (780 bytes).
+    Removing stm32f1xx_hal_flash.o(.bss), (32 bytes).
+    Removing stm32f1xx_hal_flash_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_flash_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_flash_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_flash_ex.o(.text), (1116 bytes).
+    Removing stm32f1xx_hal_dma.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_dma.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_dma.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_cortex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_cortex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_cortex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_crc.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_crc.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_crc.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_i2c.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_i2c.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_i2c.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_irda.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_irda.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_irda.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_iwdg.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_iwdg.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_iwdg.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_pwr.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_pwr.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_pwr.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_pwr.o(.text), (424 bytes).
+    Removing stm32f1xx_hal_rcc.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_rcc.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_rcc.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_rcc_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_rcc_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_rcc_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_rcc_ex.o(.text), (548 bytes).
+    Removing stm32f1xx_hal_rtc.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_rtc.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_rtc.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_rtc_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_rtc_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_rtc_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_smartcard.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_smartcard.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_smartcard.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_spi.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_spi.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_spi.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_spi_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_spi_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_spi_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_tim.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_tim.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_tim.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_tim.o(.text), (8246 bytes).
+    Removing stm32f1xx_hal_tim_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_tim_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_tim_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_tim_ex.o(.text), (2754 bytes).
+    Removing stm32f1xx_hal_uart.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_uart.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_uart.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_usart.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_usart.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_usart.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_usart.o(.text), (3870 bytes).
+    Removing stm32f1xx_hal_wwdg.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_wwdg.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_wwdg.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_ll_fsmc.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_ll_fsmc.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_ll_fsmc.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_ll_sdmmc.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_ll_sdmmc.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_ll_sdmmc.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_ll_usb.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_ll_usb.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_ll_usb.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_ll_utils.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_ll_utils.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_ll_utils.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_ll_utils.o(.text), (564 bytes).
+    Removing stm32f1xx_hal_can.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_can.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_can.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_dac.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_dac.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_dac.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_dac_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_dac_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_dac_ex.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_i2s.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_i2s.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_i2s.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_mmc.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_mmc.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_mmc.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_sd.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_sd.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_sd.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_nand.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_nand.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_nand.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_pccard.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_pccard.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_pccard.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_nor.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_nor.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_nor.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_sram.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_sram.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_sram.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_pcd.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_pcd.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_pcd.o(.rrx_text), (6 bytes).
+    Removing stm32f1xx_hal_pcd_ex.o(.rev16_text), (4 bytes).
+    Removing stm32f1xx_hal_pcd_ex.o(.revsh_text), (4 bytes).
+    Removing stm32f1xx_hal_pcd_ex.o(.rrx_text), (6 bytes).
+    Removing startup_stm32f103xe.o(HEAP), (512 bytes).
+    Removing memheap.o(.text), (1630 bytes).
+    Removing memheap.o(.constdata), (86 bytes).
+    Removing scheduler_hook.o(.data), (8 bytes).
+
+155 unused section(s) (total 21272 bytes) removed from the image.
